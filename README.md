@@ -8,9 +8,9 @@
     Cada proyecto tiene su propia página con información detallada, incluyendo imágenes, descripción y enlace (si corresponde).
   ### Blog:
     Permite crear, editar y eliminar entradas de blog.
-    Los visitantes pueden leer las entradas del blog, ver detalles y comentar en ellas.
+    Los visitantes pueden leer las entradas del blog y ver detalles.
     Cada entrada del blog tiene su propia página con título, fecha, imagen destacada y contenido detallado.
-    Estructura de Directorios
+## Estructura de Directorios
 **portfolio/:** Contiene los archivos relacionados con la aplicación Portfolio, incluyendo modelos, vistas, plantillas HTML y archivos estáticos (imágenes, CSS).
 **blog/:** Contiene los archivos relacionados con la aplicación Blog, incluyendo modelos, vistas, plantillas HTML y archivos estáticos (imágenes, CSS).
 **static/:** Contiene archivos estáticos compartidos entre las dos aplicaciones, como imágenes y CSS. Está organizado en subdirectorios separados para cada aplicación.
