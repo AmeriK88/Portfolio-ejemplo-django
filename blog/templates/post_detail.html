@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    
+    <!-- Contenedor centralizado -->
+    <div class="text-center">
+        
+        <!-- Título de la publicación -->
+        <h2>{{ post.title }}</h2>
+        
+        <!-- Fecha de la publicación -->
+        <h3 class="my-2 h5 text-muted">{{ post.date }}</h3>
+        
+        <!-- Imagen de la publicación -->
+        <img class="img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
+        
+        <!-- Descripción de la publicación -->
+        <div class="my-4">
+            <p>{{ post.description|safe }}</p>
+        </div>
+    
+    </div> <!-- Fin del contenedor centralizado -->
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<!-- Encabezado del blog -->
+<h1>Blog</h1>
+
+<!-- Iteración sobre cada publicación en 'posts' -->
+{% for post in posts %}
+
+    <!-- Tarjeta de publicación -->
+    <div class="card card-body bg-black">
+        
+        <!-- Título de la publicación -->
+        <h2>{{ post.title }}</h2>
+        
+        <!-- Descripción de la publicación -->
+        <p>{{ post.description|safe|truncatechars:150 }}</p>
+        
+        <!-- Fecha de la publicación -->
+        <p class="my-2 h5 text-muted">{{ post.date|date:'M d Y '|upper }}</p>
+        
+        <!-- Imagen de la publicación -->
+        <img class="img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
+        
+        <!-- Contenedor del botón con un margen superior -->
+        <div class="mt-3">
+            <!-- Botón para ver detalles de la publicación -->
+            <a href="{% url 'blog:post_detail' post.id %}" class="btn btn-primary">{{ post.title }}</a>
+        </div> 
+    </div> 
+
+{% endfor %}
+
+{% endblock %}

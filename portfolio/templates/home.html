@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+{% load static %}
+
+<!-- Encabezado -->
+<header class="row bg-black">
+    <!-- Columna para la imagen -->
+    <div class="col-md-4">
+        <!-- Imagen personal guardada en carpeta portfolio -->
+        <img class="rounded float-left img-fluid" src="{% static 'portfolio/pic2.jpg' %}" alt="Responsive image"/>
+    </div>
+    <!-- Columna para la información personal -->
+    <div class="col-md-8 my-auto">
+        <!-- Título -->
+        <h1>Soy <strong>John Smith</strong></h1>
+        
+        <h3>Fullstack Dev</h3>
+        <!-- Descripción personal -->
+        <p>¡Hola! Soy John, {% lorem 1 b random %}
+        </p>
+        <!-- Botón para descargar el CV -->
+        <a href="{% static 'portfolio/YOUR_CV.pdf' %}" class="btn btn-outline-primary btn-lg rounded-2 my-3">Download CV</a>
+    </div>
+</header> 
+
+<!-- Sección de proyectos -->
+<div class="row my-4 text-center">
+    <h3>Mis Proyectos</h3>
+    <!-- Descripción de proyectos -->
+    <p>Necessitatibus nulla repudiandae ab ratione consequatur assumenda ex, impedit dolorem quo consectetur illum ipsam culpa itaque incidunt consequatur illo, accusamus enim voluptatibus, minus architecto illum, vero expedita voluptas ex? Ipsum repellendus quasi eligendi doloremque aperiam id, dicta aliquam repellendus temporibus culpa exercitationem, corrupti commodi soluta ut fugit dolores aut qui velit explicabo quam. Necessitatibus nulla repudiandae ab ratione consequatur assumenda ex, impedit dolorem quo consectetur illum ipsam culpa itaque incidunt consequatur illo, accusamus enim voluptatibus, minus architecto illum, vero expedita voluptas ex? Ipsum repellendus quasi eligendi doloremque aperiam id, dicta aliquam repellendus temporibus culpa exercitationem, corrupti commodi soluta ut fugit dolores aut qui velit explicabo quam.</p>
+    
+    <!-- Iteración sobre los proyectos -->
+    {% for project in projects %}
+
+        <!-- Columna para cada proyecto -->
+        <div class="col-md-4 p-4">
+            <!-- Tarjeta del proyecto -->
+            <div class="card bg-black card-project">
+                <div class="card-body">
+                    <!-- Título del proyecto -->
+                    <h2 class="text-light">{{ project.title }}</h2>
+                    <!-- Descripción del proyecto -->
+                    <p>{{ project.description }}</p>
+                    <!-- Imagen del proyecto -->
+                    <div>
+                        <img class="img-fluid" src="{{ project.image.url }}" alt="{{ project.title }}"/>
+                    </div>
+                    
+                    <!-- Si hay una URL asociada al proyecto, mostrarla -->
+                    {% if project.url %}
+                        <div class="mt-3">
+                            <a href="{{ project.url }}">{{ project.url }}</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div> 
+        </div> 
+
+    {% endfor %} 
+</div> 
+
+{% endblock %}
